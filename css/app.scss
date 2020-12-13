@@ -8,12 +8,15 @@ $yellow-color: #ffb744;
 $red-color: #ff4444;
 $notification-green-color: #42bb6a;
 
+$heading-font: "Alegreya Sans";
+$body-font: neue-haas-unica;
+
 body {
-  font-family: neue-haas-unica, sans-serif;
+  font-family: $body-font;
   font-style: normal;
   font-weight: 300;
-  font-size: 3.5rem;
-  line-height: 140%;
+  font-size: 2rem;
+  line-height: 1.4;
   letter-spacing: 0.5px;
 
   background-color: $cream-color;
@@ -21,5 +24,134 @@ body {
 }
 
 h1 {
-  font-family: "Alegreya Sans", sans-serif;
+  font-family: $heading-font;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 6.5rem;
+  line-height: 1.2;
+}
+
+a {
+  display: block;
+  line-height: 0;
+}
+
+.green-bg {
+  background-color: $green-color;
+}
+
+.image-fit img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+header {
+  .logo {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  .burger {
+    position: absolute;
+    top: 4rem;
+    right: 4rem;
+  }
+}
+
+section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 4rem;
+  padding-left: 4rem;
+
+  h1 {
+    line-height: 1;
+    display: block;
+    margin-bottom: 2rem;
+  }
+
+  .button {
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+    text-align: center;
+    color: $cream-color;
+
+    background-color: $black-color;
+    border-radius: 50px;
+    padding: 1rem 2.5rem;
+    display: inline-block;
+    vertical-align: middle;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background-color: $green-color;
+  }
+}
+
+// styles for home's second section
+
+.second-section {
+  div.image-fit {
+    height: 65%;
+  }
+}
+
+.home-shop-info {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10rem;
+
+  p {
+    color: $cream-color;
+  }
+
+  span {
+    box-shadow: inset 0px -2px 0px $cream-color;
+  }
+}
+
+// styles for home's third section (marquee)
+
+.marquee {
+  position: absolute;
+  top: 3vh;
+  left: 0;
+  width: 100%;
+  /* each letter will be 5% of the viewport with (vw) */
+  font-size: 5vw;
+  line-height: 1;
+  /* this will stop the long text from causing scroll bars by hanging outisde of the marquee box area */
+  overflow: hidden;
+}
+
+.marquee span {
+  /* this is the shorthand (brief) version of the animation css rule*/
+  animation: moveLeft 200s infinite;
+  /* this will ensure the text stays all on the same line */
+  white-space: nowrap;
+  /* our span is inline by default, so here we tell it to be block   */
+  display: block;
+  /*  this will let us add our animation  */
+  position: relative;
+  transform: translateX(-70px);
+}
+
+@media (max-width: 640px) {
+  .marquee {
+    /* here we reset our marquee back to its default position */
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 90vw;
+    margin-bottom: 24px;
+  }
 }
