@@ -1,0 +1,24 @@
+@use "reset";
+@use "typography";
+
+$black-color: #19191a;
+$cream-color: #f6f5f2;
+$green-color: #3e685a;
+$yellow-color: #ffb744;
+$red-color: #ff4444;
+$notification-green-color: #42bb6a;
+
+$body-font: "Neue Haas Unica";
+$heading-font: "Alegreya Sans";
+
+body {
+  font-family: $body-font, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 3.5rem;
+  line-height: 140%;
+  letter-spacing: 0.5px;
+
+  background-color: $cream-color;
+  color: $black-color;
+}
