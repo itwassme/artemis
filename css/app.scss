@@ -33,7 +33,7 @@ h1 {
 
 a {
   display: block;
-  line-height: 0;
+  // line-height: 0;
 }
 
 .green-bg {
@@ -121,9 +121,17 @@ section {
 
 // styles for home's third section (marquee)
 
+.third-section {
+  align-items: inherit;
+  padding: 0;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .marquee {
-  position: absolute;
-  top: 3vh;
+  // position: absolute;
+  // top: 3vh;
+  padding-top: 6rem;
   left: 0;
   width: 100%;
   /* each letter will be 5% of the viewport with (vw) */
@@ -131,6 +139,16 @@ section {
   line-height: 1;
   /* this will stop the long text from causing scroll bars by hanging outisde of the marquee box area */
   overflow: hidden;
+  white-space: nowrap;
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-3000vw);
+  }
 }
 
 .marquee span {
@@ -145,6 +163,26 @@ section {
   transform: translateX(-70px);
 }
 
+.below-marquee {
+  height: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 4rem;
+
+  h2 {
+    font-size: 3.5rem;
+    padding-left: 4rem;
+    text-decoration: underline solid $black-color 2px;
+    // text-decoration-color: $black-color;
+    // text-decoration-thickness: 2px;
+  }
+
+  img {
+    height: 50vh;
+  }
+}
+
 @media (max-width: 640px) {
   .marquee {
     /* here we reset our marquee back to its default position */
@@ -153,5 +191,89 @@ section {
     left: auto;
     width: 90vw;
     margin-bottom: 24px;
+  }
+}
+
+// styles for home's fourth section
+
+.fourth-section {
+  justify-content: space-between;
+  height: auto;
+  padding: 0;
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    align-items: flex-end;
+
+    img {
+      width: 50vw;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .illustration_leaf {
+      height: 32vh;
+      margin-top: 6rem;
+      width: auto;
+    }
+  }
+
+  .right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+  }
+  img {
+    width: 68%;
+    height: 40vh;
+    object-fit: cover;
+  }
+}
+
+// footer styles
+footer {
+  background-color: $green-color;
+  color: $cream-color;
+  padding: 5.5rem 4rem;
+  display: flex;
+  margin-top: 5rem;
+
+  a {
+    text-decoration: none;
+    color: $cream-color;
+    opacity: 1;
+    transition: opacity 0.1s ease-in;
+  }
+
+  a:hover {
+    opacity: 0.5;
+  }
+
+  .location-heading,
+  .follow-heading {
+    display: inline-block;
+    margin-bottom: 1rem;
+    box-shadow: inset 0px -2px 0px #f6f5f2;
+  }
+
+  .left {
+    img {
+      margin-bottom: 3rem;
+    }
+    h1 {
+      font-size: 5rem;
+    }
+  }
+
+  .right {
+    padding-left: 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
   }
 }

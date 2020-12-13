@@ -90,7 +90,6 @@ h1 {
 
 a {
   display: block;
-  line-height: 0;
 }
 
 .green-bg {
@@ -161,6 +160,141 @@ section .button:hover {
 }
 .home-shop-info span {
   box-shadow: inset 0px -2px 0px #f6f5f2;
+}
+
+.third-section {
+  align-items: inherit;
+  padding: 0;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.marquee {
+  padding-top: 6rem;
+  left: 0;
+  width: 100%;
+  /* each letter will be 5% of the viewport with (vw) */
+  font-size: 5vw;
+  line-height: 1;
+  /* this will stop the long text from causing scroll bars by hanging outisde of the marquee box area */
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-3000vw);
+  }
+}
+.marquee span {
+  /* this is the shorthand (brief) version of the animation css rule*/
+  animation: moveLeft 200s infinite;
+  /* this will ensure the text stays all on the same line */
+  white-space: nowrap;
+  /* our span is inline by default, so here we tell it to be block   */
+  display: block;
+  /*  this will let us add our animation  */
+  position: relative;
+  transform: translateX(-70px);
+}
+
+.below-marquee {
+  height: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 4rem;
+}
+.below-marquee h2 {
+  font-size: 3.5rem;
+  padding-left: 4rem;
+  text-decoration: underline solid #19191a 2px;
+}
+.below-marquee img {
+  height: 50vh;
+}
+
+@media (max-width: 640px) {
+  .marquee {
+    /* here we reset our marquee back to its default position */
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 90vw;
+    margin-bottom: 24px;
+  }
+}
+.fourth-section {
+  justify-content: space-between;
+  height: auto;
+  padding: 0;
+}
+.fourth-section .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  align-items: flex-end;
+}
+.fourth-section .left img {
+  width: 50vw;
+  height: auto;
+  object-fit: cover;
+}
+.fourth-section .left .illustration_leaf {
+  height: 32vh;
+  margin-top: 6rem;
+  width: auto;
+}
+.fourth-section .right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+}
+.fourth-section img {
+  width: 68%;
+  height: 40vh;
+  object-fit: cover;
+}
+
+footer {
+  background-color: #3e685a;
+  color: #f6f5f2;
+  padding: 5.5rem 4rem;
+  display: flex;
+  margin-top: 5rem;
+}
+footer a {
+  text-decoration: none;
+  color: #f6f5f2;
+  opacity: 1;
+  transition: opacity 0.1s ease-in;
+}
+footer a:hover {
+  opacity: 0.5;
+}
+footer .location-heading,
+footer .follow-heading {
+  display: inline-block;
+  margin-bottom: 1rem;
+  box-shadow: inset 0px -2px 0px #f6f5f2;
+}
+footer .left img {
+  margin-bottom: 3rem;
+}
+footer .left h1 {
+  font-size: 5rem;
+}
+footer .right {
+  padding-left: 8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 /*# sourceMappingURL=app.css.map */
