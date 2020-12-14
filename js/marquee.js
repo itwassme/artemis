@@ -23,3 +23,10 @@ makeMarquee()
 
 
 // funcion for menu toggle
+ $('.burger').on('click',function() {
+  
+ $('.menu').toggleClass('open')
+  
+ return false
+  
+})

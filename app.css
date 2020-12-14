@@ -84,22 +84,12 @@ h1 {
   font-family: "Alegreya Sans";
   font-style: normal;
   font-weight: 700;
-  font-size: 6.5rem;
+  font-size: 7.5vw;
   line-height: 1.2;
 }
 
 a {
   display: block;
-}
-
-.green-bg {
-  background-color: #3e685a;
-}
-
-.image-fit img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
 }
 
 header .logo {
@@ -111,6 +101,18 @@ header .burger {
   position: absolute;
   top: 4rem;
   right: 4rem;
+  cursor: pointer;
+  z-index: 10;
+}
+@media (max-width: 48rem) {
+  header .logo {
+    top: 2rem;
+    left: 3rem;
+  }
+  header .burger {
+    top: 2rem;
+    right: 3rem;
+  }
 }
 
 section {
@@ -144,8 +146,133 @@ section .button:hover {
   background-color: #3e685a;
 }
 
+.menu {
+  background-color: #3e685a;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateX(100%);
+  transition: transform 0.5s ease;
+  width: 100%;
+  z-index: 2;
+}
+
+.open {
+  transform: translateX(0);
+}
+
+.menu .pages {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.menu .pages a {
+  font-family: "Alegreya Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 6.5rem;
+  line-height: 1.5;
+  color: #19191a;
+  display: block;
+  margin-bottom: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.menu .pages a:hover {
+  color: #f6f5f2;
+}
+
+.first-section {
+  height: 100vh;
+}
+.first-section .text {
+  margin-top: 2rem;
+}
+.first-section .image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+@media (max-width: 62rem) {
+  .first-section {
+    flex-direction: column-reverse;
+    margin: 0;
+    padding: 0 2rem;
+  }
+  .first-section .text {
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    padding: 0 11rem;
+    text-align: center;
+  }
+  .first-section .image-wrapper {
+    width: 40%;
+  }
+  .first-section img {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
+}
+@media (max-width: 48rem) {
+  .first-section .text {
+    padding: 0;
+  }
+  .first-section .text h1 {
+    font-size: 3rem;
+    padding: 0 3rem;
+  }
+  .first-section .image-wrapper {
+    width: 60%;
+    margin-top: 2rem;
+  }
+  .first-section .image-wrapper .img {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+.second-section {
+  padding: 0;
+  background-color: #3e685a;
+  height: 100vh;
+  display: flex;
+}
+.second-section div {
+  width: 50%;
+  height: 100%;
+}
 .second-section div.image-fit {
   height: 65%;
+}
+.second-section img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+@media (max-width: 48rem) {
+  .second-section {
+    display: block;
+    height: auto;
+  }
+  .second-section div.image {
+    width: 100%;
+    height: 40vh;
+  }
+  .second-section div.home-shop-info {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 4rem 0;
+    font-size: 1.5rem;
+  }
 }
 
 .home-shop-info {
@@ -161,24 +288,10 @@ section .button:hover {
 .home-shop-info span {
   box-shadow: inset 0px -2px 0px #f6f5f2;
 }
-
-.third-section {
-  align-items: inherit;
-  padding: 0;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.marquee {
-  padding-top: 6rem;
-  left: 0;
-  width: 100%;
-  /* each letter will be 5% of the viewport with (vw) */
-  font-size: 5vw;
-  line-height: 1;
-  /* this will stop the long text from causing scroll bars by hanging outisde of the marquee box area */
-  overflow: hidden;
-  white-space: nowrap;
+@media (max-width: 62rem) {
+  .home-shop-info {
+    padding-left: 5rem;
+  }
 }
 
 @keyframes moveLeft {
@@ -189,7 +302,27 @@ section .button:hover {
     transform: translateX(-3000vw);
   }
 }
-.marquee span {
+.third-section {
+  width: 100%;
+  align-items: inherit;
+  padding: 0;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.third-section .marquee {
+  left: 0;
+  width: 100%;
+  font-size: 5vw;
+  line-height: 1;
+  /* this will stop the long text from causing scroll bars
+  by hanging outisde of the marquee box area */
+  overflow: hidden;
+  white-space: nowrap;
+}
+.third-section .marquee h1 {
+  margin: 4rem 0;
+}
+.third-section .marquee span {
   /* this is the shorthand (brief) version of the animation css rule*/
   animation: moveLeft 200s infinite;
   /* this will ensure the text stays all on the same line */
@@ -200,33 +333,65 @@ section .button:hover {
   position: relative;
   transform: translateX(-70px);
 }
-
-.below-marquee {
-  height: 80%;
+.third-section .below-marquee {
+  height: 70%;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding-bottom: 4rem;
+  padding-bottom: 7rem;
 }
-.below-marquee h2 {
-  font-size: 3.5rem;
+.third-section .below-marquee h2 {
+  font-size: 4vw;
   padding-left: 4rem;
   text-decoration: underline solid #19191a 2px;
 }
-.below-marquee img {
-  height: 50vh;
+.third-section .below-marquee img {
+  object-fit: cover;
+  height: 100%;
 }
-
-@media (max-width: 640px) {
-  .marquee {
+@media (max-width: 62rem) {
+  .third-section {
+    display: block;
+    height: auto;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    align-items: center;
+    align-items: flex-start;
+  }
+  .third-section .marquee {
+    padding-top: 2rem;
+    margin-bottom: 4rem;
     /* here we reset our marquee back to its default position */
     position: relative;
     top: auto;
     left: auto;
-    width: 90vw;
     margin-bottom: 24px;
   }
+  .third-section .below-marquee {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    padding: 0;
+  }
+  .third-section h1 {
+    margin: 0;
+  }
+  .third-section h2 {
+    padding: 4rem;
+  }
+  .third-section img {
+    padding: 0;
+    width: 100%;
+    object-fit: cover;
+    height: 60vh;
+  }
 }
+@media (max-width: 48rem) {
+  .third-section .below-marquee h2 {
+    font-size: 2rem;
+  }
+}
+
 .fourth-section {
   justify-content: space-between;
   height: auto;
@@ -261,6 +426,17 @@ section .button:hover {
   height: 40vh;
   object-fit: cover;
 }
+@media (max-width: 62rem) {
+  .fourth-section .left img {
+    width: 100%;
+  }
+  .fourth-section .illustration_leaf {
+    display: none;
+  }
+  .fourth-section .right {
+    display: none;
+  }
+}
 
 footer {
   background-color: #3e685a;
@@ -284,6 +460,9 @@ footer .follow-heading {
   margin-bottom: 1rem;
   box-shadow: inset 0px -2px 0px #f6f5f2;
 }
+footer .left {
+  width: 50%;
+}
 footer .left img {
   margin-bottom: 3rem;
 }
@@ -291,10 +470,41 @@ footer .left h1 {
   font-size: 5rem;
 }
 footer .right {
+  width: 50%;
   padding-left: 8rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+}
+@media (max-width: 62rem) {
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+  footer h1 {
+    display: none;
+  }
+  footer .left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  footer .left img {
+    margin-bottom: 4rem;
+  }
+  footer .right {
+    padding: 0;
+    justify-content: center;
+  }
+  footer .right .location {
+    display: none;
+  }
+  footer .right .follow {
+    text-align: center;
+  }
 }
 
 /*# sourceMappingURL=app.css.map */

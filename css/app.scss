@@ -11,6 +11,17 @@ $notification-green-color: #42bb6a;
 $heading-font: "Alegreya Sans";
 $body-font: neue-haas-unica;
 
+$mq-mobile: 30rem; // 480px
+$mq-tablet-portraits: 48rem; // 768px
+$mq-tablet-landscape: 62rem; // 992px
+$mq-laptops: 75rem; // 1200px
+
+@mixin mq($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
 body {
   font-family: $body-font;
   font-style: normal;
@@ -27,23 +38,13 @@ h1 {
   font-family: $heading-font;
   font-style: normal;
   font-weight: 700;
-  font-size: 6.5rem;
+  font-size: 7.5vw;
   line-height: 1.2;
 }
 
 a {
   display: block;
   // line-height: 0;
-}
-
-.green-bg {
-  background-color: $green-color;
-}
-
-.image-fit img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
 }
 
 header {
@@ -57,6 +58,20 @@ header {
     position: absolute;
     top: 4rem;
     right: 4rem;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  @include mq($mq-tablet-portraits) {
+    .logo {
+      top: 2rem;
+      left: 3rem;
+    }
+
+    .burger {
+      top: 2rem;
+      right: 3rem;
+    }
   }
 }
 
@@ -95,11 +110,150 @@ section {
   }
 }
 
+// styles for the menu
+
+.menu {
+  background-color: $green-color;
+  // color: #fff;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateX(100%);
+  transition: transform 0.5s ease;
+  width: 100%;
+  z-index: 2;
+}
+
+.open {
+  transform: translateX(0);
+}
+
+.menu .pages {
+  // right: 45px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.menu .pages a {
+  font-family: "Alegreya Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 6.5rem;
+  line-height: 1.5;
+
+  color: $black-color;
+  display: block;
+  margin-bottom: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.menu .pages a:hover {
+  color: $cream-color;
+}
+
+// styles for home's first-section
+.first-section {
+  height: 100vh;
+
+  .text {
+    margin-top: 2rem;
+  }
+
+  .image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  @include mq($mq-tablet-landscape) {
+    flex-direction: column-reverse;
+    margin: 0;
+    padding: 0 2rem;
+
+    .text {
+      align-items: center;
+      flex-direction: column;
+      display: flex;
+      padding: 0 11rem;
+      text-align: center;
+    }
+
+    .image-wrapper {
+      width: 40%;
+    }
+
+    img {
+      margin-top: 2rem;
+      margin-bottom: 4rem;
+    }
+  }
+
+  @include mq($mq-tablet-portraits) {
+    .text {
+      padding: 0;
+      h1 {
+        font-size: 3rem;
+        padding: 0 3rem;
+      }
+    }
+
+    .image-wrapper {
+      width: 60%;
+      margin-top: 2rem;
+      .img {
+        margin: 0;
+        width: 100%;
+      }
+    }
+  }
+}
+
 // styles for home's second section
 
 .second-section {
+  padding: 0;
+  background-color: $green-color;
+  height: 100vh;
+  display: flex;
+
+  div {
+    width: 50%;
+    height: 100%;
+  }
+
   div.image-fit {
     height: 65%;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  @include mq($mq-tablet-portraits) {
+    display: block;
+    height: auto;
+
+    div.image {
+      width: 100%;
+      height: 40vh;
+    }
+
+    div.home-shop-info {
+      width: 100%;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      padding: 4rem 0;
+      font-size: 1.5rem;
+    }
   }
 }
 
@@ -117,30 +271,13 @@ section {
   span {
     box-shadow: inset 0px -2px 0px $cream-color;
   }
+
+  @include mq($mq-tablet-landscape) {
+    padding-left: 5rem;
+  }
 }
 
 // styles for home's third section (marquee)
-
-.third-section {
-  align-items: inherit;
-  padding: 0;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.marquee {
-  // position: absolute;
-  // top: 3vh;
-  padding-top: 6rem;
-  left: 0;
-  width: 100%;
-  /* each letter will be 5% of the viewport with (vw) */
-  font-size: 5vw;
-  line-height: 1;
-  /* this will stop the long text from causing scroll bars by hanging outisde of the marquee box area */
-  overflow: hidden;
-  white-space: nowrap;
-}
 
 @keyframes moveLeft {
   0% {
@@ -151,46 +288,104 @@ section {
   }
 }
 
-.marquee span {
-  /* this is the shorthand (brief) version of the animation css rule*/
-  animation: moveLeft 200s infinite;
-  /* this will ensure the text stays all on the same line */
-  white-space: nowrap;
-  /* our span is inline by default, so here we tell it to be block   */
-  display: block;
-  /*  this will let us add our animation  */
-  position: relative;
-  transform: translateX(-70px);
-}
-
-.below-marquee {
-  height: 80%;
-  display: flex;
+.third-section {
+  width: 100%;
+  align-items: inherit;
+  padding: 0;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: flex-end;
-  padding-bottom: 4rem;
 
-  h2 {
-    font-size: 3.5rem;
-    padding-left: 4rem;
-    text-decoration: underline solid $black-color 2px;
-    // text-decoration-color: $black-color;
-    // text-decoration-thickness: 2px;
-  }
-
-  img {
-    height: 50vh;
-  }
-}
-
-@media (max-width: 640px) {
   .marquee {
-    /* here we reset our marquee back to its default position */
+    left: 0;
+    width: 100%;
+    font-size: 5vw;
+    line-height: 1;
+    /* this will stop the long text from causing scroll bars
+    by hanging outisde of the marquee box area */
+    overflow: hidden;
+    white-space: nowrap;
+
+    h1 {
+      margin: 4rem 0;
+    }
+  }
+
+  .marquee span {
+    /* this is the shorthand (brief) version of the animation css rule*/
+    animation: moveLeft 200s infinite;
+    /* this will ensure the text stays all on the same line */
+    white-space: nowrap;
+    /* our span is inline by default, so here we tell it to be block   */
+    display: block;
+    /*  this will let us add our animation  */
     position: relative;
-    top: auto;
-    left: auto;
-    width: 90vw;
-    margin-bottom: 24px;
+    transform: translateX(-70px);
+  }
+
+  .below-marquee {
+    height: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 7rem;
+
+    h2 {
+      font-size: 4vw;
+      padding-left: 4rem;
+      text-decoration: underline solid $black-color 2px;
+    }
+
+    img {
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+
+  @include mq($mq-tablet-landscape) {
+    display: block;
+    height: auto;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    align-items: center;
+    align-items: flex-start;
+
+    .marquee {
+      padding-top: 2rem;
+      margin-bottom: 4rem;
+      /* here we reset our marquee back to its default position */
+      position: relative;
+      top: auto;
+      left: auto;
+      margin-bottom: 24px;
+    }
+
+    .below-marquee {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      padding: 0;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    h2 {
+      padding: 4rem;
+    }
+
+    img {
+      padding: 0;
+      width: 100%;
+      object-fit: cover;
+      height: 60vh;
+    }
+  }
+
+  @include mq($mq-tablet-portraits) {
+    .below-marquee h2 {
+      font-size: 2rem;
+    }
   }
 }
 
@@ -233,6 +428,20 @@ section {
     height: 40vh;
     object-fit: cover;
   }
+
+  @include mq($mq-tablet-landscape) {
+    .left img {
+      width: 100%;
+    }
+
+    .illustration_leaf {
+      display: none;
+    }
+
+    .right {
+      display: none;
+    }
+  }
 }
 
 // footer styles
@@ -262,6 +471,7 @@ footer {
   }
 
   .left {
+    width: 50%;
     img {
       margin-bottom: 3rem;
     }
@@ -271,9 +481,44 @@ footer {
   }
 
   .right {
+    width: 50%;
     padding-left: 8rem;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+  }
+
+  @include mq($mq-tablet-landscape) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+
+    h1 {
+      display: none;
+    }
+
+    .left {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      img {
+        margin-bottom: 4rem;
+      }
+    }
+
+    .right {
+      padding: 0;
+      justify-content: center;
+
+      .location {
+        display: none;
+      }
+      .follow {
+        text-align: center;
+      }
+    }
   }
 }
