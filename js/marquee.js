@@ -19,3 +19,7 @@ function makeMarquee() {
 
 // here we actually run our makeMarquee function
 makeMarquee()
+
+
+
+// funcion for menu toggle
