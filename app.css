@@ -96,13 +96,14 @@ header .logo {
   position: absolute;
   top: 4rem;
   left: 4rem;
+  z-index: 15;
 }
 header .burger {
   position: absolute;
   top: 4rem;
   right: 4rem;
   cursor: pointer;
-  z-index: 10;
+  z-index: 15;
 }
 @media (max-width: 48rem) {
   header .logo {
@@ -505,6 +506,62 @@ footer .right {
   footer .right .follow {
     text-align: center;
   }
+}
+
+section.menu-page:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.menu-page {
+  padding: 0;
+  display: flex;
+  z-index: -1;
+  height: inherit;
+  align-items: unset;
+}
+.menu-page div {
+  width: 50%;
+}
+.menu-page span {
+  box-shadow: inset 0px -2px 0px #19191a;
+}
+.menu-page .text {
+  margin-top: 2rem;
+  padding: 4rem;
+}
+.menu-page .full-image {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
+.menu-page .image-1 {
+  background-image: url(./images/image1.jpg);
+}
+.menu-page .image-2 {
+  background-image: url(./images/image6.jpg);
+}
+@media (max-width: 62rem) {
+  .menu-page h1 {
+    font-size: 3rem;
+  }
+  .menu-page p {
+    font-size: 1.6rem;
+  }
+  .menu-page span {
+    box-shadow: inset 0px -1px 0px #19191a;
+  }
+}
+@media (max-width: 48rem) {
+  .menu-page {
+    display: block;
+  }
+}
+
+.no-margin {
+  margin: 0;
 }
 
 /*# sourceMappingURL=app.css.map */

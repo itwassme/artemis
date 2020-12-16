@@ -17,7 +17,7 @@ function makeMarquee() {
   marquee.innerHTML = marqueeText
 }
 
-// here we actually run our makeMarquee function
+// here we actually run our makeMarquee function$
 makeMarquee()
 
 
@@ -30,3 +30,4 @@ makeMarquee()
  return false
   
 })
+

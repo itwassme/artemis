@@ -52,6 +52,7 @@ header {
     position: absolute;
     top: 4rem;
     left: 4rem;
+    z-index: 15;
   }
 
   .burger {
@@ -59,7 +60,7 @@ header {
     top: 4rem;
     right: 4rem;
     cursor: pointer;
-    z-index: 10;
+    z-index: 15;
   }
 
   @include mq($mq-tablet-portraits) {
@@ -110,7 +111,7 @@ section {
   }
 }
 
-// styles for the menu
+// styles for the nav-menu
 
 .menu {
   background-color: $green-color;
@@ -525,24 +526,61 @@ footer {
 
 // styles for menu page
 
-section .menu-page {
+section.menu-page:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.menu-page {
+  padding: 0;
   display: flex;
+  z-index: -1;
+  height: inherit;
+  align-items: unset;
+
   div {
     width: 50%;
-    .text {
-      padding: 2rem;
-    }
-    .full-image {
-      height: 100vh;
-      background-size: cover;
-      background-position: center;
+  }
 
-      position: sticky;
-      position: -webkit-sticky;
-      top: 0;
+  span {
+    box-shadow: inset 0px -2px 0px $black-color;
+  }
+  .text {
+    margin-top: 2rem;
+    padding: 4rem;
+  }
+  .full-image {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+  }
+  .image-1 {
+    background-image: url(./images/image1.jpg);
+  }
+  .image-2 {
+    background-image: url(./images/image6.jpg);
+  }
+
+  @include mq($mq-tablet-landscape) {
+    h1 {
+      font-size: 3rem;
     }
-    .image-1 {
-      background-image: url(image1.jpg);
+    p {
+      font-size: 1.6rem;
+    }
+    span {
+      box-shadow: inset 0px -1px 0px $black-color;
     }
   }
+
+  @include mq($mq-tablet-portraits) {
+    display: block;
+  }
+}
+
+.no-margin {
+  margin: 0;
 }
