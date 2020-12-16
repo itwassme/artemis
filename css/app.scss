@@ -522,3 +522,27 @@ footer {
     }
   }
 }
+
+// styles for menu page
+
+section .menu-page {
+  display: flex;
+  div {
+    width: 50%;
+    .text {
+      padding: 2rem;
+    }
+    .full-image {
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
+    }
+    .image-1 {
+      background-image: url(image1.jpg);
+    }
+  }
+}
