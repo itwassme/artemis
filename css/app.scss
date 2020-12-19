@@ -528,6 +528,7 @@ footer {
 
 section.menu-page:nth-child(even) {
   flex-direction: row-reverse;
+  margin: 0;
 }
 
 .menu-page {
@@ -557,19 +558,13 @@ section.menu-page:nth-child(even) {
     position: -webkit-sticky;
     top: 0;
   }
-  .image-1 {
-    background-image: url(./images/image1.jpg);
-  }
-  .image-2 {
-    background-image: url(./images/image6.jpg);
-  }
 
   @include mq($mq-tablet-landscape) {
     h1 {
       font-size: 3rem;
     }
     p {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
     }
     span {
       box-shadow: inset 0px -1px 0px $black-color;
@@ -578,9 +573,110 @@ section.menu-page:nth-child(even) {
 
   @include mq($mq-tablet-portraits) {
     display: block;
+    margin-top: 8rem;
+
+    .full-image {
+      width: 100%;
+      height: 40vh;
+      position: inherit;
+    }
+    .text {
+      width: 100%;
+      margin: 0;
+    }
   }
 }
 
 .no-margin {
   margin: 0;
+}
+
+.image-1 {
+  background-image: url(./images/image1.jpg);
+}
+
+.image-3 {
+  background-image: url(./images/image3.jpg);
+}
+
+.image-5 {
+  background-image: url(./images/image5.jpg);
+}
+
+.image-6 {
+  background-image: url(./images/image6.jpg);
+}
+
+// styles for visit page
+
+.visit-first-section {
+  height: auto;
+  padding: 10rem 0 0 0;
+  align-items: flex-start;
+
+  img,
+  .text {
+    width: 50%;
+  }
+
+  .text {
+    padding: 0 6rem;
+  }
+
+  @include mq($mq-tablet-landscape) {
+    .text {
+      padding: 0 4rem;
+    }
+  }
+
+  @include mq($mq-tablet-portraits) {
+    display: block;
+    padding: 8rem 0 0 0;
+
+    img,
+    .text {
+      width: 100%;
+    }
+
+    .text {
+      font-size: 1.5rem;
+      padding: 4rem;
+      width: 80%;
+    }
+  }
+
+  @include mq($mq-mobile) {
+    .text {
+      padding: 2rem 2rem 0 2rem;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+// styles for merch page
+
+.merch-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: dense;
+  grid-gap: 1rem;
+  padding: 10rem 2rem 2rem 2rem;
+  font-size: 1.2rem;
+  height: auto;
+  grid-auto-rows: 28vw;
+
+  img {
+    padding-bottom: 0.4rem;
+    transition: all 0.2s ease;
+  }
+
+  img:hover {
+    opacity: 0.65;
+  }
+
+  @include mq($mq-tablet-portraits) {
+    display: flex;
+    flex-direction: column;
+    padding: 7rem 3rem 3rem 3rem;
+  }
 }

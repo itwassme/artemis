@@ -1,3 +1,11 @@
+// funcion for menu toggle
+ $('.burger').on('click',function() {
+  
+  $('.menu').toggleClass('open')
+  return false
+  
+})
+
 //  here we make a function called makeMarquee
 function makeMarquee() {
   const title = 'Pickup and delivery only for now! But we love and miss having you here!!!'
@@ -22,12 +30,5 @@ makeMarquee()
 
 
 
-// funcion for menu toggle
- $('.burger').on('click',function() {
-  
- $('.menu').toggleClass('open')
-  
- return false
-  
-})
+
 
