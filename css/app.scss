@@ -715,5 +715,9 @@ section.menu-page:nth-child(even) {
     display: flex;
     flex-direction: column;
     padding: 8rem 2rem 2rem 2rem;
+
+    div {
+      margin-bottom: 1rem;
+    }
   }
 }

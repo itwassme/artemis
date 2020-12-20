@@ -679,6 +679,9 @@ section.menu-page:nth-child(even) {
     flex-direction: column;
     padding: 8rem 2rem 2rem 2rem;
   }
+  .merch-wrapper div {
+    margin-bottom: 1rem;
+  }
 }
 
 /*# sourceMappingURL=app.css.map */
