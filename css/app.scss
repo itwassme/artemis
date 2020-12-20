@@ -84,12 +84,12 @@ header {
   @include mq($mq-tablet-portraits) {
     .logo {
       top: 2rem;
-      left: 3rem;
+      left: 2rem;
     }
 
     .burger {
       top: 2rem;
-      right: 3rem;
+      right: 2rem;
     }
   }
 }
@@ -231,6 +231,8 @@ section {
   }
 
   @include mq($mq-tablet-portraits) {
+    margin-top: 1rem;
+
     .button {
       margin-top: 1.5rem;
     }
@@ -707,6 +709,6 @@ section.menu-page:nth-child(even) {
   @include mq($mq-tablet-portraits) {
     display: flex;
     flex-direction: column;
-    padding: 8rem 3rem 3rem 3rem;
+    padding: 8rem 2rem 2rem 2rem;
   }
 }

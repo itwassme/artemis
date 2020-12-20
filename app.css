@@ -126,11 +126,11 @@ header .burger {
 @media (max-width: 48rem) {
   header .logo {
     top: 2rem;
-    left: 3rem;
+    left: 2rem;
   }
   header .burger {
     top: 2rem;
-    right: 3rem;
+    right: 2rem;
   }
 }
 
@@ -254,6 +254,9 @@ section .button:hover {
   }
 }
 @media (max-width: 48rem) {
+  .first-section {
+    margin-top: 1rem;
+  }
   .first-section .button {
     margin-top: 1.5rem;
   }
@@ -669,7 +672,7 @@ section.menu-page:nth-child(even) {
   .merch-wrapper {
     display: flex;
     flex-direction: column;
-    padding: 8rem 3rem 3rem 3rem;
+    padding: 8rem 2rem 2rem 2rem;
   }
 }
 
