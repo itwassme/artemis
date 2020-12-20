@@ -378,7 +378,7 @@ section .button:hover {
 }
 .third-section .below-marquee h2 {
   padding-left: 4rem;
-  text-decoration: underline #19191a 2px;
+  text-decoration: underline #19191a 2px !important;
 }
 .third-section .below-marquee img {
   object-fit: cover;
