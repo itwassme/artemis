@@ -110,6 +110,10 @@ a {
   display: block;
 }
 
+.underline {
+  text-decoration: underline #19191a 2px !important;
+}
+
 header .logo {
   position: absolute;
   top: 4rem;

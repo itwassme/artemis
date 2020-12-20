@@ -63,6 +63,10 @@ a {
   display: block;
 }
 
+.underline {
+  text-decoration: underline $black-color 2px !important;
+}
+
 // styles for the header and nav
 
 header {
