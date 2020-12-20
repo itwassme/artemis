@@ -255,7 +255,8 @@ section .button:hover {
 }
 @media (max-width: 48rem) {
   .first-section {
-    margin-top: 1rem;
+    height: auto;
+    margin: 6rem 0 4rem 0;
   }
   .first-section .button {
     margin-top: 1.5rem;

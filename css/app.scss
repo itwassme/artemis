@@ -231,7 +231,8 @@ section {
   }
 
   @include mq($mq-tablet-portraits) {
-    margin-top: 1rem;
+    height: auto;
+    margin: 6rem 0 4rem 0;
 
     .button {
       margin-top: 1.5rem;
