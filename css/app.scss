@@ -161,14 +161,17 @@ section {
   margin-bottom: 5px;
   text-align: center;
   text-decoration: none;
-
-  @include mq($mq-tablet-portraits) {
-    line-height: 1.2;
-  }
 }
 
 .menu .pages a:hover {
   color: $cream-color;
+}
+
+@include mq($mq-tablet-portraits) {
+  .menu .pages a {
+    line-height: 1.2;
+    font-size: 5rem;
+  }
 }
 
 // styles for home's first-section
@@ -228,10 +231,6 @@ section {
   }
 
   @include mq($mq-tablet-portraits) {
-    h1 {
-      padding: 0 3rem;
-    }
-
     .button {
       margin-top: 1.5rem;
     }
