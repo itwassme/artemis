@@ -88,6 +88,24 @@ h1 {
   line-height: 1.2;
 }
 
+h2 {
+  font-size: 4vw;
+}
+
+@media (max-width: 62rem) {
+  h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  body {
+    font-size: 1.5rem;
+  }
+}
 a {
   display: block;
 }
@@ -123,11 +141,6 @@ section {
   align-items: center;
   padding-right: 4rem;
   padding-left: 4rem;
-}
-section h1 {
-  line-height: 1;
-  display: block;
-  margin-bottom: 2rem;
 }
 section .button {
   font-size: 1rem;
@@ -181,6 +194,11 @@ section .button:hover {
   text-align: center;
   text-decoration: none;
 }
+@media (max-width: 48rem) {
+  .menu .pages a {
+    line-height: 1.2;
+  }
+}
 
 .menu .pages a:hover {
   color: #f6f5f2;
@@ -188,6 +206,7 @@ section .button:hover {
 
 .first-section {
   height: 100vh;
+  justify-content: space-between;
 }
 .first-section .text {
   margin-top: 2rem;
@@ -196,11 +215,20 @@ section .button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 40vw;
+}
+.first-section .button {
+  margin-top: 2rem;
+}
+@media (max-width: 75rem) {
+  .first-section .image-wrapper {
+    width: 34vw;
+  }
 }
 @media (max-width: 62rem) {
   .first-section {
     flex-direction: column-reverse;
+    justify-content: center;
     margin: 0;
     padding: 0 2rem;
   }
@@ -210,30 +238,35 @@ section .button:hover {
     display: flex;
     padding: 0 11rem;
     text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  .first-section .button {
+    margin-top: 2rem;
   }
   .first-section .image-wrapper {
     width: 40%;
   }
   .first-section img {
     margin-top: 2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
   }
 }
 @media (max-width: 48rem) {
-  .first-section .text {
-    padding: 0;
-  }
-  .first-section .text h1 {
-    font-size: 3rem;
+  .first-section h1 {
     padding: 0 3rem;
   }
+  .first-section .button {
+    margin-top: 1.5rem;
+  }
   .first-section .image-wrapper {
-    width: 60%;
+    width: 50vw;
     margin-top: 2rem;
   }
-  .first-section .image-wrapper .img {
+  .first-section .image-wrapper img {
     margin: 0;
     width: 100%;
+    margin-bottom: 2rem;
   }
 }
 
@@ -342,7 +375,6 @@ section .button:hover {
   padding-bottom: 7rem;
 }
 .third-section .below-marquee h2 {
-  font-size: 4vw;
   padding-left: 4rem;
   text-decoration: underline solid #19191a 2px;
 }
@@ -360,13 +392,10 @@ section .button:hover {
     align-items: flex-start;
   }
   .third-section .marquee {
-    padding-top: 2rem;
-    margin-bottom: 4rem;
     /* here we reset our marquee back to its default position */
     position: relative;
     top: auto;
     left: auto;
-    margin-bottom: 24px;
   }
   .third-section .below-marquee {
     display: flex;
@@ -385,11 +414,6 @@ section .button:hover {
     width: 100%;
     object-fit: cover;
     height: 60vh;
-  }
-}
-@media (max-width: 48rem) {
-  .third-section .below-marquee h2 {
-    font-size: 2rem;
   }
 }
 
@@ -477,6 +501,11 @@ footer .right {
   justify-content: space-between;
   align-items: flex-end;
 }
+@media (max-width: 75rem) {
+  footer .right {
+    padding-left: 4vw;
+  }
+}
 @media (max-width: 62rem) {
   footer {
     display: flex;
@@ -539,9 +568,6 @@ section.menu-page:nth-child(even) {
   top: 0;
 }
 @media (max-width: 62rem) {
-  .menu-page h1 {
-    font-size: 3rem;
-  }
   .menu-page p {
     font-size: 1.5rem;
   }
@@ -613,7 +639,7 @@ section.menu-page:nth-child(even) {
   }
   .visit-first-section .text {
     font-size: 1.5rem;
-    padding: 4rem;
+    padding: 4rem 4rem 0 4rem;
     width: 80%;
   }
 }
@@ -645,7 +671,7 @@ section.menu-page:nth-child(even) {
   .merch-wrapper {
     display: flex;
     flex-direction: column;
-    padding: 7rem 3rem 3rem 3rem;
+    padding: 8rem 3rem 3rem 3rem;
   }
 }
 
