@@ -183,7 +183,7 @@ section .button:hover {
 }
 
 .menu .pages a {
-  font-family: "Alegreya Sans";
+  font-family: "Alegreya Sans", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 6.5rem;
@@ -378,7 +378,7 @@ section .button:hover {
 }
 .third-section .below-marquee h2 {
   padding-left: 4rem;
-  text-decoration: underline solid #19191a 2px;
+  text-decoration: underline #19191a 2px;
 }
 .third-section .below-marquee img {
   object-fit: cover;
